@@ -1,11 +1,17 @@
 <div class="slider-warper" id={{sliderId}}>
     <div class="sli-content">
-        <ul>
+        <ul class="imgUl">
             {{#each imgs}}
-            <li class="" data-index={{index}}>
-                <img src={{src}} />
+            <li data-index={{index}}>
+                <img src={{src}}  >
             </li>
             {{/each}}
         </ul>
+        <div class="icon icon-left" data-index="left">
+            <div class="arrow-left"></div>
+        </div>
+        <div class="icon icon-right" data-index="right">
+            <div class="arrow-right"></div>
+        </div>
     </div>
 </div>

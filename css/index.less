@@ -1,3 +1,125 @@
-body{
-    font-style: 12px;
+.prefix(@key,@value){
+  -webkit-@{key}: @value;
+  -ms-@{key}: @value;
+  -moz-@{key}:@value;
+  -o-@{key}: @value;
+  @{key}: @value;
+}
+.slider-warper {
+  margin: 0 0 20px;
+  background-color: #fff;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, .15);
+  box-shadow: 0 0 2px rgba(0, 0, 0, .15);
+  overflow: hidden;
+  &:hover{
+    .icon{
+      opacity: 1;
+    }
+  }
+  ol{
+    list-style: none;
+    margin: 5px;
+    padding: 0;
+    height: 20px;
+    text-align: center;
+    li{
+      display: inline-block;
+    }
+    a{
+      width: 10px;
+      height: 10px;
+      background: rgba(0,0,0,.5);
+      display: inline-block;
+      border-radius: 50%;
+      cursor: pointer;
+      &.active{
+        background:#0e90d2;
+        cursor: default;
+      }
+    }
+  }
+}
+
+.sli-content {
+  overflow: hidden;
+  position: relative;
+  max-height: 2000px;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 1200%;
+    position: relative;
+    transition: all 1s ease;
+    &:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+    li {
+      width: 500px;
+      margin-right: 0px;
+      float: left;
+      display: block;
+      position: relative;
+      img {
+        width: 100%;
+        display: block;
+      }
+    }
+  }
+}
+
+.arrow-left,.arrow-right{
+  width: 20px;
+  height: 20px;
+  background: #000;
+  opacity: 0.8;
+  .prefix(border-radius,10px);
+  cursor: pointer;
+  position: relative;
+  &:before, &:after {
+    content: '';
+    display: inline-block;
+    width: 2px;
+    height: 10px;
+    background: #fff;
+    position: absolute;
+    top: 2px;
+    left: 7px;
+  }
+
+}
+.arrow-left{
+  &:before{
+      .prefix(transform,rotate(45deg))
+  }
+  &:after {
+    top: 8px;
+    .prefix(transform,rotate(-45deg))
+  }
+}
+.arrow-right{
+  &:before{
+    top: 8px;
+    left: 10px;
+    .prefix(transform,rotate(45deg))
+  }
+  &:after {
+    left: 10px;
+    .prefix(transform,rotate(-45deg))
+  }
+}
+.icon{
+  position: absolute;
+  top: 48%;
+  opacity: 0;
+  transition: all 1s ease-in-out 0s;
+}
+.icon-left{
+  left: 5px;
+}
+.icon-right{
+  right: 5px;
 }
